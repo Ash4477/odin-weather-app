@@ -1,3 +1,9 @@
+import renderHeader from "./header/header";
+import renderMain from "./main/main";
+import fetchWeatherData from "./weatherData";
 import "./styles.css";
 
-document.write("Hello, JS + Webpack");
+renderHeader();
+fetchWeatherData("Karachi").then((res) => {
+  renderMain(res);
+});

@@ -1,14 +1,18 @@
+import fetchImageData from "../imageData";
 import "./main.css";
 
 const renderMain = ({
   resolvedAddress,
   temp,
+  conditions,
   feelslike,
   humidity,
   windspeed,
 }) => {
+  fetchImageData(`${conditions} weather`);
+
   const conditionText = document.createElement("h3");
-  conditionText.textContent = "Mist";
+  conditionText.textContent = conditions;
 
   const addressText = document.createElement("h2");
   addressText.textContent = resolvedAddress;
@@ -67,6 +71,7 @@ const renderMain = ({
   weatherInfoContainer.appendChild(tempInfoContainer);
   weatherInfoContainer.appendChild(degreeSwitch);
 
+  document.querySelector("main").innerHTML = "";
   document.querySelector("main").appendChild(weatherInfoContainer);
 };
 

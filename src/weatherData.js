@@ -3,9 +3,10 @@ const fetchWeatherData = async (location) => {
   const response = await fetch(url, { mod: "cors" });
   const data = await response.json();
   const { resolvedAddress, currentConditions } = data;
-  const { temp, humidity, feelslike, windspeed } = currentConditions;
+  const { temp, conditions, humidity, feelslike, windspeed } =
+    currentConditions;
 
-  return { resolvedAddress, temp, humidity, feelslike, windspeed };
+  return { resolvedAddress, conditions, temp, humidity, feelslike, windspeed };
 };
 
 export default fetchWeatherData;
